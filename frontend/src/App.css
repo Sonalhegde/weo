@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Global Styles */
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Table Styles */
+.table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table .badge {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.table .badge-success {
+  background-color: #28a745;
+}
+
+.table .badge-danger {
+  background-color: #dc3545;
+}
+
+/* Chart Section */
+h2.text-center {
+  font-size: 24px;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+/* Buy/Sell Button Styles */
+button.btn-success {
+  background-color: #28a745;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive design tweaks */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  .table {
+    font-size: 14px;
+  }
+}
