@@ -32,19 +32,22 @@ const Certifications = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {certifications.map((cert, index) => (
-                    <motion.div
+                    <motion.a
                         key={index}
+                        href="https://www.linkedin.com/in/sonalhegde/details/certifications/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.05 }}
-                        className="glass-card p-4 rounded-xl flex items-center gap-3"
+                        className="glass-card p-4 rounded-xl flex items-center gap-3 hover:bg-white/10 hover:border-electric-blue/30 transition-all duration-300 cursor-pointer group"
                     >
-                        <div className="p-2 rounded-lg bg-electric-blue/10 text-electric-blue">
+                        <div className="p-2 rounded-lg bg-electric-blue/10 text-electric-blue group-hover:bg-electric-blue/20 transition-colors">
                             <Award size={20} />
                         </div>
-                        <span className="text-sm font-medium text-gray-200">{cert}</span>
-                    </motion.div>
+                        <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">{cert}</span>
+                    </motion.a>
                 ))}
             </div>
 

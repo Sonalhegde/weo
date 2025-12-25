@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, MapPin, Linkedin, Mail } from 'lucide-react';
 import profilePic from '../assets/profile_pic_2.jpg';
 
-const Hero = () => {
+const Hero = ({ theme }) => {
+    const isMinecraft = theme === 'minecraft';
+
     return (
         <section className="min-h-[80vh] flex items-center justify-center relative pt-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
@@ -20,8 +22,8 @@ const Hero = () => {
                         <div className="absolute inset-0 bg-electric-blue/20 rounded-full blur-3xl animate-pulse-slow"></div>
 
                         {/* Image Container */}
-                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl glass-panel p-2">
-                            <div className="w-full h-full rounded-full overflow-hidden bg-midnight">
+                        <div className={`relative w-full h-full overflow-hidden border-4 border-white/10 shadow-2xl glass-panel p-2 ${isMinecraft ? '' : 'rounded-full'}`}>
+                            <div className={`w-full h-full overflow-hidden bg-midnight ${isMinecraft ? '' : 'rounded-full'}`}>
                                 <img
                                     src={profilePic}
                                     alt="Sonal Hegde"
@@ -39,7 +41,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-center lg:text-left"
                 >
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white mb-8 mx-auto lg:mx-0 shadow-[0_0_20px_rgba(0,122,255,0.15)] hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-default">
+                    <div className={`inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white mb-8 mx-auto lg:mx-0 shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-default ${isMinecraft ? 'minecraft-border' : 'rounded-full'}`} style={!isMinecraft ? { boxShadow: '0 0 20px var(--primary-shadow)' } : {}}>
                         <span className="relative flex h-3 w-3">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]"></span>
@@ -47,8 +49,8 @@ const Hero = () => {
                         <span className="font-medium tracking-wide">Open for work</span>
                         <span className="h-4 w-px bg-white/20 mx-1"></span>
                         <div className="flex items-center gap-1.5 text-gray-200">
-                            <MapPin size={14} className="text-electric-blue drop-shadow-[0_0_8px_rgba(0,122,255,0.8)]" />
-                            Muscat, Oman | Udupi,India. open for wrk
+                            <MapPin size={14} className="text-electric-blue" style={{ filter: 'drop-shadow(0 0 8px var(--primary))' }} />
+                            Muscat, Oman | Udupi, India
                         </div>
                     </div>
 
@@ -63,15 +65,18 @@ const Hero = () => {
                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                         <a
                             href="#projects"
-                            className="px-6 py-3 rounded-full bg-electric-blue hover:bg-blue-600 text-white font-medium transition-all hover:scale-105 flex items-center gap-2 shadow-[0_0_20px_rgba(0,122,255,0.3)]"
+                            className={`px-6 py-3 font-medium transition-all hover:scale-105 flex items-center gap-2 ${isMinecraft ? 'minecraft-btn' : 'rounded-full bg-electric-blue hover:bg-electric-blue-hover text-white'}`}
+                            style={!isMinecraft ? { boxShadow: '0 0 20px var(--primary-shadow)' } : {}}
                         >
                             View Projects <ArrowRight size={18} />
                         </a>
                         <a
-                            href="/resume.pdf"
-                            className="px-6 py-3 rounded-full glass-panel hover:bg-white/10 text-white font-medium transition-all hover:scale-105 flex items-center gap-2"
+                            href="/resume.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`px-6 py-3 font-medium transition-all hover:scale-105 flex items-center gap-2 ${isMinecraft ? 'minecraft-btn' : 'rounded-full glass-panel hover:bg-white/10 text-white'}`}
                         >
-                            Download Resume <Download size={18} />
+                            View Resume <ArrowRight size={18} />
                         </a>
 
                         {/* Social Links */}

@@ -9,8 +9,9 @@ export default {
       colors: {
         'midnight': '#050505',
         'midnight-light': '#0a0f1e',
-        'electric-blue': '#007AFF',
-        'cyber-teal': '#64ffda',
+        'electric-blue': 'var(--primary)',
+        'electric-blue-hover': 'var(--primary-hover)',
+        'cyber-teal': 'var(--secondary)',
         'glass-border': 'rgba(255, 255, 255, 0.1)',
       },
       fontFamily: {

@@ -5,14 +5,16 @@ import { Menu, X, Calendar, Github, Terminal, Linkedin, Mail } from 'lucide-reac
 const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' },
+    { name: 'Events', href: '#events' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ theme }) => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const isMinecraft = theme === 'minecraft';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,8 +32,8 @@ const Navbar = () => {
                 }`}
         >
             <div className="container mx-auto px-4 flex justify-center">
-                <div className={`glass-panel rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-midnight/80 backdrop-blur-md border-white/5' : 'bg-transparent border-transparent'
-                    } ${isOpen ? 'rounded-2xl flex-col w-full md:w-auto md:flex-row md:rounded-full' : ''}`}>
+                <div className={`glass-panel px-6 py-3 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-midnight/80 backdrop-blur-md border-white/5' : 'bg-transparent border-transparent'
+                    } ${isOpen ? 'rounded-2xl flex-col w-full md:w-auto md:flex-row md:rounded-full' : ''} ${isMinecraft ? '' : 'rounded-full'}`}>
 
                     <div className="flex items-center justify-between w-full md:w-auto">
                         <a href="#" className="text-xl font-bold tracking-tighter text-white mr-8">
@@ -78,10 +80,12 @@ const Navbar = () => {
                             </a>
                         ))}
                         <a
-                            href="/resume.pdf"
-                            className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all hover:scale-105"
+                            href="/resume.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`px-5 py-2 text-sm font-medium transition-all hover:scale-105 ${isMinecraft ? 'minecraft-btn' : 'rounded-full bg-white/10 hover:bg-white/20 border border-white/10'}`}
                         >
-                            Resume
+                            View Resume
                         </a>
 
                         {/* Social Links - Mobile */}
